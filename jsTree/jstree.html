@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jstree.min.js"></script>
+</head>
+<!--使用本地css不显示图标，暂未解决-->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/themes/default/style.min.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<body>
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{ "selected" : true, "opened" : true }'>root node-->
+                <!--<ul>-->
+                    <!--<li>child node1</li>-->
+                    <!--<li>child node2</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$('#container').jstree();-->
+        <!--})-->
+    <!--</script>-->
+
+
+
+    <!--<div id="container"></div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$('#container').jstree({-->
+                <!--'core':{-->
+                    <!--'data':[-->
+                        <!--{-->
+                            <!--"text":"Root node",-->
+                            <!--"children":[-->
+                                <!--"child node1",-->
+                                <!--"child node2",-->
+                                <!--"child node3"-->
+                            <!--]-->
+                        <!--}-->
+                    <!--]-->
+                <!--}-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container"></div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'core':{-->
+                    <!--'data':[-->
+                        <!--{-->
+                            <!--"text":"root node",-->
+                            <!--"state":{"opend":true},-->
+                            <!--"children":[-->
+                                <!--{-->
+                                    <!--"text":"child node1",-->
+                                    <!--"state":{"selected":true},-->
+                                    <!--"icon":"glyphicon glyphicon-flash"-->
+                                <!--},-->
+                                <!--{-->
+                                    <!--"text":"child node2",-->
+                                    <!--"state":{"disabled":true}-->
+                                <!--}-->
+
+                            <!--]-->
+                        <!--}-->
+                    <!--]-->
+                <!--}-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container"></div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'core':{-->
+                    <!--'data':{-->
+                        <!--"url":"//www.jstree.com/fiddle/",-->
+                        <!--"dataType":"json"-->
+                    <!--}-->
+                <!--}-->
+            <!--})-->
+        <!--})-->
+<!--//        后台返回的数据-->
+<!--//        [{-->
+<!--//            "id":1,"text":"Root node","children":[-->
+<!--//                {"id":2,"text":"Child node 1"},-->
+<!--//                {"id":3,"text":"Child node 2"}-->
+<!--//            ]-->
+<!--//        }]-->
+    <!--</script>-->
+
+
+    <!--<div id="container"></div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'core':{-->
+                    <!--'data':{-->
+                        <!--"url":"//www.jstree.com/fiddle/?lazy",-->
+                        <!--"data":function(node){-->
+                            <!--return {"id":node.id}-->
+                        <!--}-->
+                    <!--}-->
+                <!--}-->
+            <!--})-->
+        <!--})-->
+<!--//        首次请求返回结果:-->
+<!--//        [{-->
+<!--//            "id":1,"text":"Root node","children":[-->
+<!--//                {"id":2,"text":"Child node 1","children":true},-->
+<!--//                {"id":3,"text":"Child node 2"}-->
+<!--//            ]-->
+<!--//        }]-->
+    <!--</script>-->
+
+
+    <!--<div id="container"></div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'core':{-->
+                    <!--'data':function(node,cb){-->
+                        <!--if(node.id==="#"){-->
+                            <!--cb([{"text":"root","id":"1","children":true}])-->
+                        <!--}else {-->
+                            <!--cb(["child"])-->
+                        <!--}-->
+                    <!--}-->
+                <!--}-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container"></div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$("#container").jstree({-->
+                <!--'core':{-->
+                    <!--'data':[-->
+                        <!--{"id":"1","text":"node1"},-->
+                        <!--{"id":"2","text":"node2"}-->
+                    <!--]-->
+                <!--}-->
+            <!--});-->
+            <!--$("#container").on("changed.jstree", function (e,data) {-->
+                <!--console.log("The selected nodes are:");-->
+                <!--console.log(data.selected);-->
+                <!--console.log(data.instance.get_selected(true)[0].text);-->
+                <!--console.log(data.instance.get_node(data.selected[0]).text);-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<button>selected node 1</button>-->
+    <!--<div id="container"></div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'core':{-->
+                    <!--'data':[-->
+                        <!--{"id":1,"text":"node1"},-->
+                        <!--{"id":2,"text":"node2"}-->
+                    <!--]-->
+                <!--}-->
+            <!--});-->
+            <!--$("button").on("click",function(){-->
+                <!--var instance=$("#container").jstree(true);-->
+                <!--instance.deselect_all();-->
+                <!--instance.select_node('1');-->
+                <!--$('#container').jstree("select_node", "2");-->
+            <!--});-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li>Root node-->
+                <!--<ul>-->
+                    <!--<li>Child node 1</li>-->
+                    <!--<li>Child node 2</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'core':{//核心位置-->
+                    <!--'multiple':false, // 单选-->
+                    <!--'themes':{-->
+                        <!--'dots':false // 点之间没有连接点-->
+                    <!--}-->
+                <!--},-->
+                <!--'plugins':['state'] // 激活 state 插件-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li>Root node-->
+                <!--<ul>-->
+                    <!--<li>Child node 1</li>-->
+                    <!--<li>Child node 2</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'core':{-->
+                    <!--"check_callback":true-->
+                <!--},-->
+                <!--'plugins':['dnd','contextmenu']-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li>Root node-->
+                <!--<ul>-->
+                    <!--<li>Child node 1</li>-->
+                    <!--<li>Child node 2</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'core':{-->
+                    <!--'check_callback':function(operation,node,parent,position,more){-->
+                        <!--if(operation==="copy_node"||operation==="move_node"){-->
+                            <!--if(parent.id==="#"){-->
+                                <!--return false; //防止根节点或者子节点移动-->
+                            <!--}-->
+                        <!--}-->
+                        <!--return true;-->
+                    <!--}-->
+                <!--},-->
+                <!--'plugins':['dnd','contextmenu']-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{"opened":true}'>Root node-->
+                <!--<ul>-->
+                    <!--<li>Child node 1</li>-->
+                    <!--<li>Child node 2</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$("#container").jstree({-->
+                <!--'plugins':['checkbox']-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{"opened":true}'>Root node-->
+                <!--<ul>-->
+                    <!--<li>Child node 1</li>-->
+                    <!--<li>Child node 2</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$("#container").jstree({-->
+                <!--'core':{"check_callback":true},  //修改操作-->
+                <!--'plugins':["contextmenu"]-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{"opened":true}'>Root node-->
+                <!--<ul>-->
+                    <!--<li>Child node 1</li>-->
+                    <!--<li>Child node 2</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$("#container").jstree({-->
+                <!--'core':{'check_callback':true},-->
+                <!--'plugins':['dnd']-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<form id="s">-->
+        <!--<input type="search" id="q" />-->
+        <!--<button type="submit">Search</button>-->
+    <!--</form>-->
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{"opened":true}'>Root node-->
+                <!--<ul>-->
+                    <!--<li>Child node 1</li>-->
+                    <!--<li>Child node 2</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$("#container").jstree({-->
+                <!--"plugins":["search"]-->
+            <!--});-->
+            <!--$("#s").submit(function(e){-->
+                <!--e.preventDefault();-->
+                <!--$('#container').jstree(true).search($("#q").val());-->
+            <!--})-->
+
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{"opened":true}'>Root node-->
+                <!--<ul>-->
+                    <!--<li>b</li>-->
+                    <!--<li>a</li>-->
+                    <!--<li>f</li>-->
+                    <!--<li>d</li>-->
+                    <!--<li>c</li>-->
+                    <!--<li>g</li>-->
+                    <!--<li>e</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$("#container").jstree({-->
+                <!--'plugins':['sort']-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li>Root node-->
+                <!--<ul>-->
+                    <!--<li>b</li>-->
+                    <!--<li>a</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$("#container").jstree({-->
+                <!--'state':{'key':'state_demo'},-->
+                <!--'plugins':['state']-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{"opened":true, "type":"demo"}'>Root node-->
+                <!--<ul>-->
+                    <!--<li>b</li>-->
+                    <!--<li>a</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$("#container").jstree({-->
+                <!--'types':{-->
+                    <!--'default':{-->
+                        <!--"icon" : "glyphicon glyphicon-flash"-->
+                    <!--},-->
+                    <!--'demo':{-->
+                        <!--'icon': "glyphicon glyphicon-ok"-->
+                    <!--}-->
+                <!--},-->
+                <!--'plugins':['types']-->
+            <!--})-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{"opened":true, "type":"demo"}'>Root node-->
+                <!--<ul>-->
+                    <!--<li>b</li>-->
+                    <!--<li>a</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li data-jstree='{"opened":true, "type":"demo"}'>Root node-->
+                <!--<ul>-->
+                    <!--<li>b</li>-->
+                    <!--<li>a</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$('#container').jstree({-->
+                <!--"core" : {-->
+                    <!--"check_callback" : true-->
+                <!--},-->
+                <!--"plugins" : ["unique", "dnd"]-->
+            <!--});-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div id="container">-->
+        <!--<ul>-->
+            <!--<li data-jstree='{"opened":true}'>Root node-->
+                <!--<ul>-->
+                    <!--<li data-jstree='{"selected":true}'>b</li>-->
+                    <!--<li>a</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$('#container').jstree({-->
+                <!--"plugins" : ["wholerow"]-->
+            <!--});-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <div id="container">
+        <ul>
+            <li data-jstree='{"opened":true}'>Root node
+                <ul>
+                    <li data-jstree='{"selected":true}'>b</li>
+                    <li>a</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        (function($,undefined){
+            "use strict";
+            $.jstree.defaults.conditionalselect = function () { return true; };
+            $.jstree.plugins.conditionalselect = function (options, parent) {
+                this.activate_node = function (obj, e) {
+                    if(this.settings.conditionalselect.call(this, this.get_node(obj))) {
+                        parent.activate_node.call(this, obj, e);
+                    }
+                };
+            };
+        })(jQuery)
+        $("#container").jstree({
+            "conditionalselect" : function (node) {
+                return node.text === "Root node" ? false : true;
+            },
+            "plugins" : ["conditionalselect"]
+        })
+    </script>
+
+
+
+
+
+</body>
+</html>
